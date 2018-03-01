@@ -52,6 +52,10 @@ defmodule Crypto.User do
     end
   end
 
+  def create(changeset) do
+    Repo.insert(changeset)
+  end
+
   def validate_pin_match(changeset) do
     if changeset.valid? do
       pin = get_field(changeset, :pin)

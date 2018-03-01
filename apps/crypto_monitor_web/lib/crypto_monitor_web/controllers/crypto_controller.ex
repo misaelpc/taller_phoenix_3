@@ -16,4 +16,11 @@ defmodule CryptoMonitorWeb.CryptoController do
           |> redirect(to: "/balance")
     end
   end
+  alias Crypto.Currency
+  def balance(conn, _params) do
+    user = get_session(conn, :user)
+    user_info = User.get_info(user)
+    changeset = Currency.changeset(%Currency{}, %{})
+    render conn, "balance.html", user_info: user_info, changeset: changeset
+  end
 end

@@ -10,6 +10,7 @@ defmodule CryptoMonitor.Mixfile do
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
       elixir: "~> 1.4",
+      test_coverage: [tool: ExCoveralls],
       elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
@@ -35,7 +36,7 @@ defmodule CryptoMonitor.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [
+    [ {:httpotion, "~> 3.0.2"},
       {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 2.1"}
     ]

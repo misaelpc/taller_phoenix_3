@@ -11,6 +11,7 @@ defmodule CryptoMonitorWeb.Mixfile do
       lockfile: "../../mix.lock",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
+      test_coverage: [tool: ExCoveralls],
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
