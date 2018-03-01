@@ -1,7 +1,7 @@
 defmodule CryptoMonitorWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :crypto_monitor_web
 
-  socket "/socket", CryptoMonitorWeb.UserSocket
+  socket "/socket", CryptoMonitorWeb.CryptoSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
