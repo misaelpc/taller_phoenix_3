@@ -17,6 +17,9 @@ class LiveUpdate {
 
   setupElements(){
     switch(window.location.pathname) {
+      case "/":
+      this.setupIndexElements()
+       break;
       case "/balance":
       this.setupBalanceElements()
         break;
@@ -32,6 +35,16 @@ class LiveUpdate {
     })
     this.channel.on("eth_usd", payload => {
       ethusd.innerHTML = `${payload.body} USD`
+    })
+  }
+  setupIndexElements(){
+    let btcusd = document.querySelector("#btc_usd")
+    let btcimg = document.querySelector("#btc_img")
+    this.channel.on("btc_usd", payload => {
+      btcusd.innerHTML = `${payload.body}`
+    })
+    this.channel.on("btc_img", payload => {
+      btcimg.src = `${payload.body}`
     })
   }
 }

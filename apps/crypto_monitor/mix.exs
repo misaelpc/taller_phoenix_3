@@ -37,8 +37,9 @@ defmodule CryptoMonitor.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [ {:httpotion, "~> 3.0.2"},
+      {:ecto_mnesia, "~> 0.9.0"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 2.1"}
+      {:ecto, "~> 2.1.0"}
     ]
   end
 
