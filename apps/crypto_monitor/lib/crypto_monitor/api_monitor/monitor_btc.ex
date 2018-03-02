@@ -28,6 +28,7 @@ defmodule CryptoMonitor.BTC do
     response = HTTPotion.get "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,MXN"
      %{"MXN" => mxn, "USD" => usd} = Poison.decode!(response.body)
     CryptoMonitor.Bank.update("btc", usd)
+    GenServer.call(:crypto_listener, {:update, "btc_usd", usd})
      usd
   end
 
