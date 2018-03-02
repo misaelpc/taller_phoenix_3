@@ -29,7 +29,7 @@ defmodule CryptoMonitor.BTC do
      %{"MXN" => mxn, "USD" => usd} = Poison.decode!(response.body)
     CryptoMonitor.Bank.update("btc", usd)
     GenServer.call(:crypto_listener, {:update, "btc_usd", usd})
-     usd
+    usd
   end
 
 end
