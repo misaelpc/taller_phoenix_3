@@ -22,6 +22,7 @@ defmodule CryptoMonitorWeb.Router do
     get "/", CryptoController, :index
     get "/bussines", CryptoController, :bussines
     post "/signup", UserController, :signup
+    get "/charts", CryptoController, :charts
   end
 
   scope "/", CryptoMonitorWeb do

@@ -1,4 +1,5 @@
 import {Socket} from "phoenix"
+import {ChartApp} from "./chartapp.js"
 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
@@ -23,9 +24,23 @@ class LiveUpdate {
       case "/balance":
       this.setupBalanceElements()
         break;
+      case "/charts":
+      this.setupChartElements()
+        break;
       default:
         break;
     }
+  }
+  setupChartElements(){
+    var chart =  new ChartApp()
+    chart.render()
+    this.channel.on("btc_usd", payload => {
+      chart.updateSeries2(payload.body)
+    })
+
+    this.channel.on("eth_usd", payload => {
+      chart.updateSeries1(payload.body)
+    })
   }
   setupBalanceElements(){
     let btcusd = document.querySelector("#btcBuyPrice")

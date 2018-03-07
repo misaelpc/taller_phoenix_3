@@ -23,4 +23,9 @@ defmodule CryptoMonitorWeb.CryptoController do
     changeset = Currency.changeset(%Currency{}, %{})
     render conn, "balance.html", user_info: user_info, changeset: changeset
   end
+
+  def charts(conn, _params) do
+    btc_metrics = Crypto.Metrics.get_metrics("btc")
+    render conn, "chart.html",btc_metrics: btc_metrics
+  end
 end
