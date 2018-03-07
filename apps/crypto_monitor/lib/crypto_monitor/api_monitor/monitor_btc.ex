@@ -28,6 +28,8 @@ defmodule CryptoMonitor.BTC do
     response = HTTPotion.get "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,MXN"
      %{"MXN" => mxn, "USD" => usd} = Poison.decode!(response.body)
     CryptoMonitor.Bank.update("btc", usd)
+    now = Ecto.DateTime.from_erl(:erlang.localtime)                      
+    Crypto.Metrics.create(%{date: now, value: usd, currency: "btc"})
     GenServer.call(:crypto_listener, {:update, "btc_usd", usd})
     cond do
       usd > current_value ->
