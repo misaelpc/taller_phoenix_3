@@ -14,8 +14,8 @@ defmodule CryptoMonitor.Application do
 
     Supervisor.start_link([
       supervisor(CryptoMonitor.Repo, []),
-      supervisor(CryptoMonitor.BTC, [10]),
-      supervisor(CryptoMonitor.Bank, []),
+      #worker(CryptoMonitor.BTC, [10]),
+      #worker(CryptoMonitor.Bank, []),
     ], strategy: :one_for_one, name: CryptoMonitor.Supervisor)
   end
 end

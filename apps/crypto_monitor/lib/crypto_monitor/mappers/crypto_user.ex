@@ -52,6 +52,10 @@ defmodule Crypto.User do
     end
   end
 
+  def validate_pin_match do
+    "should validate pin match"
+  end
+
   def create(changeset) do
     Repo.insert(changeset)
   end

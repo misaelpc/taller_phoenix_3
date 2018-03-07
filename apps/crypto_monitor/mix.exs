@@ -4,7 +4,7 @@ defmodule CryptoMonitor.Mixfile do
   def project do
     [
       app: :crypto_monitor,
-      version: "0.0.1",
+      version: "0.0.2",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
@@ -39,7 +39,7 @@ defmodule CryptoMonitor.Mixfile do
     [ {:httpotion, "~> 3.0.2"},
       {:ecto_mnesia, "~> 0.9.0"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 2.1.0"}
+      {:ecto, "~> 2.1", override: true}
     ]
   end
 
