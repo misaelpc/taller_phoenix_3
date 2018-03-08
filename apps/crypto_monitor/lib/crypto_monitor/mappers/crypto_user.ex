@@ -56,6 +56,10 @@ defmodule Crypto.User do
     Repo.insert(changeset)
   end
 
+  def validate_surname do
+    "Valid surname"
+  end
+
   def validate_pin_match(changeset) do
     if changeset.valid? do
       pin = get_field(changeset, :pin)

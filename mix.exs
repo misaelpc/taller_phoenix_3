@@ -23,6 +23,7 @@ defmodule CryptoMonitor.Umbrella.Mixfile do
   # Dependencies listed here are available only for this project
   # and cannot be accessed from applications inside the apps folder
   defp deps do
-    [{:excoveralls, "~> 0.8", only: :test}]
+    [{:excoveralls, "~> 0.8", only: :test},
+     {:distillery, "~> 1.5", runtime: false}]
   end
 end

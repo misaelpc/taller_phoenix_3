@@ -8,7 +8,7 @@ defmodule CryptoMonitorWeb.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(CryptoMonitorWeb.Endpoint, []),
-      supervisor(CryptoMonitor.Listener, [:crypto_listener]),
+      worker(CryptoMonitor.Listener, [:crypto_listener]),
       
       # Start your own worker by calling: CryptoMonitorWeb.Worker.start_link(arg1, arg2, arg3)
       # worker(CryptoMonitorWeb.Worker, [arg1, arg2, arg3]),
